@@ -1,0 +1,1054 @@
+*{
+    margin: 0;
+    overflow: hidden ;
+}
+
+
+body{
+    background: #000;
+    z-index: -1s;
+}
+.bigBox{
+    display: none;
+    
+}
+
+.backgroundGrain{   
+    height: 100%;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    
+}
+.backgroundGrain--box{   
+    width: 375px;
+    height: 700px;
+    margin: 49px
+  
+}
+.backgroundGrain--box svg{
+    height: 100%;
+    width: 100%;
+    border-radius: 35px;
+    z-index: 1;
+ 
+}
+.box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    margin: 50px 0 0 0;
+    border-radius: 35px;
+    
+}
+
+.container{
+    width: 375px;
+    height: 700px;
+    border-radius: 35px;
+    overflow: hidden;
+   
+}
+.cloudy{
+    position: absolute;
+    overflow: hidden;
+    margin: 170px 0 0 0; 
+    z-index: 1;
+    display: none;
+}
+.cloudy img{
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 35px 35px;
+    height: 530px;
+    width: 375px;
+    object-fit:cover;
+    opacity: .7;
+   
+}
+.sun{
+    width: 100%;
+    height: 100%;
+}
+.rain{
+    position: absolute;
+    height: 445px;
+    width: 374px;
+    margin: 254px 0 0 0;
+    border-radius: 45% 0% 35px 35px;
+    overflow: hidden;
+    display: none;
+    
+}
+.rain div{
+    height: 10px;
+    width: 70px;
+    margin: -10px 0px 0 0;
+    background: linear-gradient(0deg, white 0%, rgb(255, 255, 255, 0) 90%);
+    
+}
+.thunder{
+    position: absolute;
+    height: 699px;
+    width: 374px;
+    border-radius: 35px;
+    overflow: hidden;
+    animation: lightning 10s infinite;
+    z-index: 1;
+    display: none;
+   
+}
+.thunder img{
+    animation: lightningBolt 10s infinite;
+    opacity: 0;
+}
+.thunder img:nth-child(1){
+    position: absolute;
+    left: 0;
+    margin: 35px;
+}
+.thunder img:nth-child(2){
+    position: absolute;
+    right: 0;
+    margin: 35px;
+}
+
+
+
+.snow{
+    position: absolute;
+    display:none;
+    height: 425px;
+    width: 374px;
+    margin: 274px 0 0 0;
+    border-radius: 50% 0% 35px 35px;
+	background-image: url(./asset/snow1.png), url(./asset/snow2.png), url(./asset/snow3.png);
+	-webkit-animation: snow 12s linear infinite, fadeInAndOut 12s linear infinite; 
+	-moz-animation: snow 12s linear infinite, fadeInAndOut 12s linear infinite; 
+	-ms-animation: snow 12s linear infinite, fadeInAndOut 12s linear infinite; 
+	animation: snow 12s linear infinite, fadeInAndOut 12s linear infinite; 
+}
+
+
+
+
+
+                            /* CLOUDY WEATHER */
+
+
+.container--cloudyMorning{
+    background: rgb(2,0,36);
+    background: linear-gradient(160deg, #4817D4 0%, #8775D0 60%);
+    
+}
+.container--cloudyDay{
+    background: rgb(2,0,36);
+    background: linear-gradient(160deg, #FF8989 40%, #FFDC96  80%);
+    
+}
+.container--cloudyNight{
+    background: rgb(2,0,36);
+    background: linear-gradient(160deg, #4817D4 0%, #050044  60%);
+    
+}
+
+
+.sun--cloudyNight{
+    position: absolute;
+    margin: 0px;
+    height: 700px;
+    width: 375px;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden;
+    border-radius: 35px;
+    
+}
+
+.sun--cloudyNight .sun1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: 450px -95px;
+    background-color: #FFF;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.sun--cloudyNight .sun2{
+    position: absolute;
+    margin: 440px -105px;
+    width: 220px;
+    height: 220px;
+    background-color: #FFF;
+    border-radius: 100%;
+    /* box-shadow: -1px -1px 0px 0px #fff; */
+    animation: moonHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+    overflow: hidden;
+}
+.sun--cloudyNight .sun3{
+    position: absolute;
+    margin: 430px -115px;
+    height: 240px;
+    width: 240px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    /* box-shadow: 1px 1px 30px 20px rgb(255, 255, 255);*/
+    animation: moonHalo 3s alternate infinite ease-in-out;
+    overflow: hidden;
+}
+
+.info--cloudyNight .date, .info--cloudyNight .time, .info--cloudyNight .town, .info--cloudyNight .mesure{
+    color: #FFF;
+}
+
+.info--cloudyNight .temperature{
+    color: #54FFD6
+}
+
+
+.sun--cloudyDay{
+    position: absolute;
+    height: 700px;
+    width: 375px;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden;
+    border-radius: 35px;
+    
+}
+
+.sun--cloudyDay .sun1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: 230px -95px;
+    background-color: #FFF;
+    border-radius: 100%;
+}
+.sun--cloudyDay .sun2{
+    position: absolute;
+    margin: 180px -145px;
+    width: 300px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 100%;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+}
+.sun--cloudyDay .sun3{
+    position: absolute;
+    margin: 125px -190px;
+    height: 400px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+}
+
+.info--cloudyDay .date, .info--cloudyDay .time, .info--cloudyDay .town, .info--cloudyDay .mesure{
+    color: #000;
+}
+
+.info--cloudyDay .temperature{
+    color: #FF6B00
+}
+
+.sun--cloudyMorning{
+    position: absolute;
+    height: 700px;
+    width: 375px;
+    margin: 0;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden;
+    border-radius: 35px;
+
+}
+.sun--cloudyMorning .sun1{
+    position: absolute;
+    margin: 0 -100px -100px 0;
+    width: 200px;
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 100%;
+  
+}
+.sun--cloudyMorning .sun2{
+    position: absolute;
+    margin: 0 -150px -150px 0;
+    width: 300px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 100%;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+}
+.sun--cloudyMorning .sun3{
+    position: absolute;
+    margin: 0 -200px -200px 0;
+    height: 400px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+}
+.info--cloudyMorning .date, .info--cloudyMorning .time, .info--cloudyMorning .town, .info--cloudyMorning .mesure{
+    color: #FFF;
+}
+
+.info--cloudyMorning .temperature{
+    color: #FF8F8F
+}
+
+
+
+                            /*CLEAR WEATHER*/
+
+
+/*CLEAR MORNING*/
+
+.container--clearMorning{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, #4817D4 35%, #FF9696D0 75%);
+    
+}
+
+.sun--clearMorning{
+    position: absolute;
+    height: 700px;
+    width: 375px;
+    margin: 0;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden;
+    border-radius: 35px;
+
+}
+.sun--clearMorning .sun1{
+    position: absolute;
+    margin: 0 -100px -100px 0;
+    width: 200px;
+    height: 200px;
+    background-color: #FFF;
+    border-radius: 100%;
+  
+}
+.sun--clearMorning .sun2{
+    position: absolute;
+    margin: 0 -150px -150px 0;
+    width: 300px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 100%;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+}
+.sun--clearMorning .sun3{
+    position: absolute;
+    margin: 0 -200px -200px 0;
+    height: 400px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+}
+
+.info--clearMorning .date, .info--clearMorning .time, .info--clearMorning .town, .info--clearMorning .mesure{
+    color: #FFF;
+}
+
+.info--clearMorning .temperature{
+    color: #FF8F8F;
+}
+
+
+/* CLEAR DAY */
+
+.container--clearDay{
+   
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, #FF8989 40%, #FFDC96  100%);
+    
+}
+
+.sun--clearDay{
+    position: absolute;
+    margin: 0;
+    height: 700px;
+    width: 375px;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden;
+    z-index: 0;
+    
+}
+
+.sun--clearDay .sun1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: 230px -95px;
+    background-color: #FFF;
+    border-radius: 100%;
+}
+.sun--clearDay .sun2{
+    position: absolute;
+    margin: 180px -145px;
+    width: 300px;
+    height: 300px;
+    background-color: #FFF;
+    border-radius: 100%;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+}
+.sun--clearDay .sun3{
+    position: absolute;
+    margin: 125px -190px;
+    height: 400px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    animation: sunnyHalo 3s alternate infinite ease-in-out;
+}
+
+.info--clearDay .date, .info--clearDay .time, .info--clearDay .town, .info--clearDay .mesure{
+    color: #000;
+}
+
+.info--clearDay .temperature{
+    color: #FF6B00;
+}
+
+/* CLEAR NIGHT */
+
+.container--clearNight{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, #4817D4 20%, #050044  60%);
+    
+}
+
+.sun--clearNight{
+    position: absolute;
+    height: 700px;
+    width: 375px;
+    display: flex;
+    justify-content:end;
+    align-items: end;
+    overflow: hidden!important;
+    z-index: 0;
+    
+}
+
+.sun--clearNight .sun1{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: 450px -95px;
+    background-color: #FFF;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.sun--clearNight .sun2{
+    position: absolute;
+    margin: 440px -105px;
+    width: 220px;
+    height: 220px;
+    background-color: #FFF;
+    border-radius: 100%;
+    animation: moonHalo 3s alternate infinite ease-in-out;
+    opacity: .3;
+    overflow: hidden;
+}
+.sun--clearNight .sun3{
+    position: absolute;
+    margin: 430px -115px;
+    height: 240px;
+    width: 240px;
+    background-color: #FFF;
+    border-radius: 100%;
+    opacity: .2;
+    animation: moonHalo 3s alternate infinite ease-in-out;
+    overflow: hidden;
+}
+
+.info--clearNight .date, .info--clearNight .time, .info--clearNight .town, .info--clearNight .mesure{
+    color: #FFF;
+}
+
+.info--clearNight .temperature{
+    color: #54FFD6
+}
+
+/* SNOW MORNING */
+
+
+.container--snowMorning{
+  
+    background: linear-gradient(160deg, #13073A 40%, #4817D4 60%, #fa0000 100%);
+    
+}
+
+.info--snowMorning .date, .info--snowMorning .time, .info--snowMorning .town, .info--snowMorning .mesure{
+    color: #FFF;
+}
+
+.info--snowMorning .temperature{
+    color: #9679d4
+}
+
+/* SNOW DAY */
+
+
+.container--snowDay{
+
+    background: linear-gradient(160deg, #001AFF 30%,  #fa4444 65%, #00c3ff 100%);
+    
+}
+
+.info--snowDay .date, .info--snowDay .time, .info--snowDay .town, .info--snowDay .mesure{
+    color: #FFF;
+}
+
+.info--snowDay .temperature{
+    color: #9ED1FF;
+}
+/* SNOW NIGHT */
+
+
+.container--snowNight{
+    background: linear-gradient(160deg, #040136 40%, #001AFF 80%);
+    
+}
+
+.info--snowNight .date, .info--snowNight .time, .info--snowNight .town, .info--snowNight .mesure{
+    color: #FFF;
+}
+
+.info--snowNight .temperature{
+    color: #0057FF;
+}
+
+/*RAIN & THUNDER*/
+
+.container--thunderMorning, .container--rainMorning{
+    background: linear-gradient(160deg, #040136 40%, #ff0000 90%);
+    
+}
+
+.info--rainMorning .date, .info--rainMorning .time, .info--rainMorning .town, .info--rainMorning .mesure,
+.info--thunderMorning .date, .info--thunderMorning .time, .info--thunderMorning .town, .info--thunderMorning .mesure{
+    color: #FFF;
+}
+
+.info--thunderMorning .temperature,
+.info--rainMorning .temperature{
+    color: #4817d4;
+}
+
+.container--thunderDay, .container--rainDay{
+    background: linear-gradient(160deg, #632f18 40%, #f5a404 90%);
+    
+}
+
+.info--rainDay .date, .info--rainDay .time, .info--rainDay .town, .info--rainDay .mesure,
+.info--thunderDay .date, .info--thunderDay .time, .info--thunderDay .town, .info--thunderDay .mesure{
+    color: #FFF;
+}
+
+.info--thunderDay .temperature,
+.info--rainDay .temperature{
+    color: #9ED1FF;
+}
+
+.container--thunderNight, .container--rainNight{
+    background: linear-gradient(180deg, #220475 30%, #4f42fc  70%);
+    
+}
+
+.info--rainNight .date, .info--rainNight .time, .info--rainNight .town, .info--rainNight .mesure,
+.info--thunderNight .date, .info--thunderNight .time, .info--thunderNight .town, .info--thunderNight .mesure{
+    color: #FFF;
+}
+
+.info--thunderNight .temperature,
+.info--rainNight .temperature{
+    color: #0057FF;
+}
+
+
+.info{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    color: #FFF;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 6px;
+    height: 700px;
+    width: 374px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 900;
+    
+  
+}
+
+.date{
+    margin: 70px 0 0 0;
+    font-weight: 400;
+}
+.date > span{
+    font-weight: 900!important;
+}
+.time{
+    margin: 50px 0 0 0;
+}
+.temperature{
+    margin: 50px 0 0 0;
+    font-size: 135px;
+}
+.town{
+    margin: 20px 0 0 0;
+}
+.mesure{
+    margin: 140px 0 0 0;
+}
+
+
+.star{
+    position: absolute;
+    width: 375px;
+    height: 700px;
+    border-radius: 35px;
+    display: none;
+
+}
+#starTopRight{
+    position: absolute;
+    height: 50px;
+    margin: 110px 0 0px 30px;
+}
+#starTopLeft{
+    position: absolute;
+    margin: 150px 0 0 80px;
+}
+#starBottomRight{
+    position: absolute;
+    margin: 560px 0 0 150px;
+    height: 30px;
+}
+
+#starBottomLeft{
+    position: absolute;
+    margin: 550px 0 0 190px;
+    height: 15px;
+}
+
+
+.container2{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container2 input{
+    width: 40%;
+    height: 100px;
+    border-radius: 35px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    font-size: 3vh;
+    z-index:3;
+}
+
+.container2 p{
+    color: #FFF
+}
+
+.container2--btn{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: 35px;
+    width: 88px;
+    height: 44px;
+    padding: 15px;
+    margin: 10px;
+    z-index: 2;
+}
+.container2--btn:hover{
+    cursor: pointer;
+}
+.mesure:hover{
+    cursor: pointer;
+    
+}
+.mesure{
+    z-index: 1;
+    opacity: .3;
+}
+.mesure--celius, .mesure--fahrenheit, .temperature--celsius, .temperature--fahrenheit{
+    display: none;
+}
+
+
+
+.drawerbox{
+    display: flex;
+    width: 100vw;
+    height: 80%;
+    position: absolute;
+    justify-content: center;
+
+}
+.arrow--drawer{
+    position: relative;
+    display: flex;
+    z-index: 5;
+    height: 44px;
+    top: 0; 
+    
+}
+
+.arrow--drawer:hover{
+    cursor: pointer;
+}
+
+.arrow--drawer img{
+    height: 44px;
+    width: 44px;
+    z-index: 8!important;
+}
+.arrow--drawer__up{
+    cursor: pointer;
+    animation:  bouncesDown 500ms alternate infinite ease-in-out;
+    transform: rotate(180deg);
+}
+.drawer--container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.drawer{
+    position: absolute;
+    top: 0;
+    height: 0px;
+    border: 1px solid #FFF;
+    border-radius: 0 0 35px 35px;
+    border-top: none ;
+    display: none;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.829);
+    margin:auto;
+    width: 90%;
+    z-index: 5;
+    overflow: hidden;
+    
+}
+.drawer--box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #57ff41;
+    height: 100%;
+    width: 100%;
+}
+.drawer img{
+    height: 44px;
+}
+.drawer img:hover{
+    cursor: pointer;
+}
+.drawer--btnContainer{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    width: 50%;
+    border: 1px solid red;
+}
+
+.drawer--btnOptions{
+    
+    width: 25%;
+    height: auto;
+    border: 1px solid salmon;
+    display: flex;
+}
+
+.btnContainer--div{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid orange;
+}
+.btn--back{
+    width: 25%;
+    border: 1px solid violet;
+}
+.btn--drawer{
+    width: 88px;
+    height: 44px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;  
+    text-align: center;
+    border-radius: 10px;
+    background-color: #00c3ff;
+
+}
+
+.btn--drawer:hover{
+    cursor: pointer;
+}
+
+
+
+@keyframes drawerUnder60{
+    from {}
+    to{height: 0px;}
+}
+
+@keyframes arrowUnder60{
+    from {transform: rotate(180); opacity: 0}
+    to{top: 0px;  transform: rotate(0);  opacity: 1}
+}
+@keyframes drawerOver300{
+    from { }
+    to{height: 600px;  }
+}
+
+@keyframes arrowOver300{
+    from {z-index: -3; opacity: 0 }
+    to{top: 600px; transform: rotate(180deg); opacity: 1;}
+}
+
+@keyframes bouncesDown {
+    from {transform: translateY(0);}
+    to{transform: translateY(5px);}
+}
+@keyframes bouncesUp {
+    from {transform: translateY(0) rotate(180deg);}
+    to{transform: translateY(5px) rotate(180deg);}
+}
+
+@keyframes sunnyHalo {
+    from {
+        transform: scale(1);
+    } to{
+        transform: scale(1.1)
+    }
+}
+@keyframes moonHalo {
+    from {
+        transform: scale(1);
+    } to{
+        transform: scale(1.05);
+    }
+}
+
+@keyframes fadeInAndOut{
+    0%{opacity:0}
+    30%{opacity:1}
+    90%{opacity:1}
+    100%{opacity:0}
+    
+}
+
+@keyframes snow {
+    0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+    50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+    100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}	
+
+@keyframes rainFall{
+    0%{ transform: translateY(0); opacity: 1;}
+    50%{opacity: 1;}
+    100%{ transform: translateY(500px) scaleY(30); opacity: 0;}
+}
+
+@keyframes lightning {
+    0% {background-color: none;}
+    20% {background: none;}
+    22% {background: white;}
+    33% {background: none;}
+    100% {background-color: none;}
+}
+@keyframes lightningBolt {
+  
+    20% {opacity: 0;}
+    22% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+
+@media screen and (max-width: 1023px){
+
+    .bigBox{
+        position: absolute;
+        height: 100vh;
+        overflow: hidden;
+       
+
+    }
+    .backgroundGrain{
+        position: absolute;
+
+    }
+    .backgroundGrain--box{
+        width: 100vw;
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        position: absolute;
+        margin: 0;
+        
+      
+    }
+    .backgroundGrain--box svg{
+        border-radius: 0;
+        height: 100%;
+        opacity: .3;        
+    }
+    .box{
+        margin: 0;
+        border-radius: 0;
+        height: 100%;
+        
+        
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+        
+        
+    }
+    .cloudy{
+        height: 100%;
+        width: 100%;
+        margin: 0
+    }
+    .cloudy img{
+        border-radius: 0;
+        height: 100vh;
+        width: 100%;
+       
+    }
+    .rain{
+        display: flex;
+        flex-direction: row;
+        width: 99vw;
+        height: 100vh;
+        
+    }
+    .rain div{
+       
+        width: 10px;
+        height: 10px;
+        margin: -10px 10px 0 0;
+    }
+    .thunder{
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+      
+    }
+    .thunder img{
+        height: 100%;
+    }
+    .snow{
+        height: 100vh;
+        width: 100vh;
+    }
+
+    .drawerBox{
+        height: 50vh;
+    
+    }
+    
+    .test{
+        width: 100vw;
+        height: 100vh;
+     
+    }
+    .test img{
+        height: 100%;
+        width: 100%;
+        opacity: 0.1;
+        
+    }
+    .sun{
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .info{
+        height: 100%;
+        width: 100%;
+        font-size: 40px;
+        align-items: center;
+    }
+    .date{
+        margin: 10% 0 0 0;
+        font-weight: 400;
+    }
+    .date > span{
+        font-weight: 900!important;
+    }
+    .time{
+        margin: 5% 0 0 0;
+    }
+    .temperature{
+        margin: 5% 0 0 0;
+        font-size: 135px;
+    }
+    .town{
+        margin: 20px 0 0 0;
+    }
+    .mesure{
+        margin: 140px 0 0 0;
+    }
+}
