@@ -1,5 +1,6 @@
 "use strict";
 
+console.log("SALUT");
 
 
 let morningCloudy = document.getElementById("cloudyMorning");
