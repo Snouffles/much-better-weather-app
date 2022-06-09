@@ -21,9 +21,8 @@ app.set("trust proxy", 1);
 //ENABLE CORS
 app.use(cors());
 
-
-//SET STATIC FOLDER
 app.use(express.static("../frontend/"))
+
 
 //ROUTES
 app.use("/api", route);
@@ -32,6 +31,6 @@ app.use("/api", route);
 
 
 reload(app).then(()=>{
-    app.listen(PORT, () => {console.log(`Server running on port ${PORT}`)});
+    app.listen(PORT, () => {console.log(`Server running on port ${PORT}`);});
     
 });

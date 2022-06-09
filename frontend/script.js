@@ -64,6 +64,8 @@ async function callWeatherApi(id) {
 
 }
 
+
+
 //Call OpenWeatherMap API by geolocalisation
 async function callWeatherApiByGeo(lat, lon) {
     let call = await fetch(`/api?lat=${lat}&lon=${lon}`);
@@ -705,8 +707,8 @@ let drawer = document.querySelector(".drawer");
 let arrowDown = drawerbox.querySelector(".arrow--drawer");
 let arrowDownHover = drawerbox.querySelector(".arrow--drawer:hover");
 
+//OPENING THE DRAWER AND CLOSING DRAWER WITH ARROWS
 arrowDown.onpointerdown = function (event) {
-
     arrowDown.addEventListener("touchstart", e => {
         e.preventDefault();
     })
@@ -755,7 +757,7 @@ arrowDown.onpointerdown = function (event) {
     }
 };
 
-
+//CLOSING THE DRAWER BY SWIPING
 drawer.addEventListener("pointerdown", e => {
     let clientY = e.clientY;
     let newClientY;
@@ -770,15 +772,13 @@ drawer.addEventListener("pointerdown", e => {
     document.addEventListener("pointerup", onPointerUp);
 
     function onPointerMove(e) {
-
         newClientY = e.clientY;
 
-        if ((clientY - newClientY) > 100) {
+        if ((clientY - newClientY) > 200) {
             animationDrawer(0, 1)
         }
 
     }
-
     function onPointerUp() {
 
         document.removeEventListener('pointerup', onPointerUp);
@@ -866,15 +866,11 @@ function addRainDrop(margin, child) {
     rain.appendChild(newDiv);
     let childStyle = document.querySelector(`.rain div:nth-child(${child})`);
     childStyle.style.animation = `rainFall 2s ${margin}ms infinite ease`;
-
 }
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
 }
-
-
-
 
 window.addEventListener("resize", e => {
     rainWidth = innerWidth;
@@ -882,3 +878,5 @@ window.addEventListener("resize", e => {
     rainWidthIsNotEmpty();
     rainFall();
 })
+
+
