@@ -21,7 +21,7 @@ app.set("trust proxy", 1);
 //ENABLE CORS
 app.use(cors());
 
-app.use(express.static("../frontend/"))
+app.use(express.static("../u"))
 
 
 //ROUTES
