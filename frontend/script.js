@@ -709,28 +709,89 @@ let arrowDown = drawerbox.querySelector(".arrow--drawer");
 let arrowDownHover = drawerbox.querySelector(".arrow--drawer:hover");
 
 //OPENING THE DRAWER AND CLOSING DRAWER WITH ARROWS
-arrowDown.onpointerdown = function (event) {
-    arrowDown.addEventListener("touchstart", e => {
-        e.preventDefault();
-    })
-    arrowDown.addEventListener("touchmove", e => {
-        e.preventDefault();
-    })
+// arrowDown.onpointerdown = function (event) {
+ 
+//     event.preventDefault();
+//     let shiftY = event.clientY - arrowDown.getBoundingClientRect().top;
+//     let newTopWhenClicked = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+//     let topEdge = drawerbox.offsetHeight - arrowDown.offsetHeight;
+//     let newTop;
 
+//     document.addEventListener("pointermove", onPointerMove);
+//     document.addEventListener("pointerup", onPointerUp);
+
+//     function onPointerMove(event) {
+//         drawer.style.display = "flex";
+       
+//         arrowDown.style.opacity = "0";
+//         newTop = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+
+//         if (newTop < 0) {
+//             newTop = 0;
+//         }
+//         if (newTop > topEdge) {
+//             newTop = topEdge;
+//         }
+//         arrowDown.style.top = newTop + "px";
+//         drawer.style.height = newTop + "px"
+//     }
+
+//     function onPointerUp(event) {
+//         event.preventDefault();
+//         if (newTop === newTopWhenClicked) {
+//             arrowDown.style.opacity = "1";
+//         }
+
+//         if (newTopWhenClicked > 100) {
+//             animationDrawer(newTop, 700)
+//         } else {
+//             animationDrawer(newTop, 100)
+//         }
+//         document.removeEventListener('pointerup', onPointerUp);
+//         document.removeEventListener('pointermove', onPointerMove);
+//     }
+// };
+
+// //CLOSING THE DRAWER BY SWIPING
+// drawer.addEventListener("pointerdown", e => {
+//     let clientY = e.clientY;
+//     let newClientY;
+ 
+//     drawer.addEventListener("pointermove", onPointerMove);
+//     drawer.addEventListener("pointerup", onPointerUp);
+
+//     function onPointerMove(e) {
+//         newClientY = e.clientY;
+
+//         if ((clientY - newClientY) > 50) {
+//             animationDrawer(0, 1)
+//         }
+
+//     }
+//     function onPointerUp() {
+
+//         document.removeEventListener('pointerup', onPointerUp);
+//         document.removeEventListener('pointermove', onPointerMove);
+//     }
+
+// })
+
+arrowDown.ontouchstart = (event) => {
+    event.stopPropagation();
     event.preventDefault();
-    let shiftY = event.clientY - arrowDown.getBoundingClientRect().top;
-    let newTopWhenClicked = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+    let shiftY = event.changedTouches[0].clientY - arrowDown.getBoundingClientRect().top;
+    let newTopWhenClicked = event.changedTouches[0].clientY - shiftY - drawerbox.getBoundingClientRect().top;
     let topEdge = drawerbox.offsetHeight - arrowDown.offsetHeight;
     let newTop;
 
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    document.addEventListener("touchmove", onTouchMove);
+    document.addEventListener("touchend", onTouchEnd);
 
-    function onPointerMove(event) {
+    function onTouchMove(event) {
         drawer.style.display = "flex";
-        event.preventDefault();
+       
         arrowDown.style.opacity = "0";
-        newTop = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+        newTop = event.changedTouches[0].clientY - shiftY - drawerbox.getBoundingClientRect().top;
 
         if (newTop < 0) {
             newTop = 0;
@@ -742,8 +803,8 @@ arrowDown.onpointerdown = function (event) {
         drawer.style.height = newTop + "px"
     }
 
-    function onPointerUp(event) {
-        event.preventDefault();
+    function onTouchEnd() {
+       
         if (newTop === newTopWhenClicked) {
             arrowDown.style.opacity = "1";
         }
@@ -753,40 +814,38 @@ arrowDown.onpointerdown = function (event) {
         } else {
             animationDrawer(newTop, 100)
         }
-        document.removeEventListener('pointerup', onPointerUp);
-        document.removeEventListener('pointermove', onPointerMove);
+        document.removeEventListener('touchmove', onTouchMove);
+        document.removeEventListener('touchend', onTouchEnd);
     }
+   
 };
 
-//CLOSING THE DRAWER BY SWIPING
-drawer.addEventListener("pointerdown", e => {
-    let clientY = e.clientY;
+
+drawer.addEventListener("touchstart", e => {
+    let clientY = e.changedTouches[0].clientY;
     let newClientY;
-    arrowDown.addEventListener("touchstart", e => {
-        e.preventDefault();
-    })
-    arrowDown.addEventListener("touchmove", e => {
-        e.preventDefault();
-    })
-    e.preventDefault();
-    document.addEventListener("pointermove", onPointerMove);
-    document.addEventListener("pointerup", onPointerUp);
+    
+    
+    document.addEventListener("touchmove", onPointerMove);
+    document.addEventListener("touchend", onPointerUp);
 
     function onPointerMove(e) {
-        newClientY = e.clientY;
-
-        if ((clientY - newClientY) > 200) {
+        newClientY = e.changedTouches[0].clientY;
+        console.log("moving: " + newClientY + " firstPosition: " + clientY);
+        if ((clientY - newClientY) > 50) {
             animationDrawer(0, 1)
         }
 
     }
     function onPointerUp() {
-
-        document.removeEventListener('pointerup', onPointerUp);
-        document.removeEventListener('pointermove', onPointerMove);
+        document.removeEventListener('touchmove', onPointerUp);
+        document.removeEventListener('touchend', onPointerMove);
     }
+});
 
-})
+
+    
+
 
 
 function animationDrawer(newTop, top) {
@@ -803,8 +862,8 @@ function animationDrawer(newTop, top) {
 
 
         })
-        arrowDown.style.animation = "arrowUnder60 500ms forwards ease-out"
-        drawer.style.animation = "drawerUnder60 500ms forwards ease-out"
+        arrowDown.style.animation = "arrowUnder60 5s  ease-out"
+        drawer.style.animation = "drawerUnder60 5s  ease-out"
         setTimeout(() => {
             arrowDown.style.animation = "";
             arrowDown.style.top = "0";
@@ -812,28 +871,21 @@ function animationDrawer(newTop, top) {
             arrowDown.style.opacity = "1";
             drawer.style.animation = "";
             drawer.style.height = "0px";
-            drawer.style.display = "none";
-        }, 500)
+           
+        }, 5000)
     }
     if (newTop > top) {
 
-        arrowDown.style.animation = "arrowOver300 500ms forwards ease-out"
-        drawer.style.animation = "drawerOver300 500ms forwards ease-out"
+        arrowDown.style.animation = "arrowOver300 5000ms ease-out"
+        drawer.style.animation = "drawerOver300 5000ms ease-out"
         setTimeout(() => {
             arrowDown.style.animation = "";
             arrowDown.style.top = "600px";
             arrowDown.style.transform = "rotate(180deg)";
-            arrowDown.addEventListener("pointerover", (e) => {
-                arrowDown.style.transform = "rotate(180deg)";
-                arrowDown.style.animation = "bouncesUp 500ms alternate infinite ease-in-out";
-                arrowDown.addEventListener("pointerout", e => {
-                    arrowDown.style.animation = "";
-                })
-            })
             drawer.style.animation = "";
             drawer.style.height = "600px";
             arrowDown.style.opacity = "1";
-        }, 500)
+        }, 5000)
     }
 }
 
