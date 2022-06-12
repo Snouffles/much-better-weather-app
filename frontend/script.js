@@ -1,8 +1,4 @@
 "use strict";
-
-console.log("SALUT");
-
-
 let morningCloudy = document.getElementById("cloudyMorning");
 let dayCloudy = document.getElementById("cloudyDay");
 let nightCloudy = document.getElementById("cloudyNight");
@@ -65,8 +61,6 @@ async function callWeatherApi(id) {
 
 }
 
-
-
 //Call OpenWeatherMap API by geolocalisation
 async function callWeatherApiByGeo(lat, lon) {
     let call = await fetch(`/api?lat=${lat}&lon=${lon}`);
@@ -93,6 +87,7 @@ async function callWeatherApiByGeo(lat, lon) {
     return info;
 
 }
+
 //return moment of the day at the locations weather.
 function dayOrNight(information) {
 
@@ -122,7 +117,7 @@ function dayOrNight(information) {
     return timeOfTheDay;
 }
 
-
+//get the exact time
 function timer() {
 
     let d = new Date();
@@ -151,6 +146,7 @@ function timer() {
 let celsiusDisplay;
 let fahrenheitDisplay;
 
+//set the weather info
 function weatherInfo(information, e) {
 
     let tempToCelsius = (information.temp - 273.15).toString();
@@ -234,6 +230,7 @@ function weatherInfo(information, e) {
 
 }
 
+//Clear Morning
 function clearM() {
     sun.classList.remove(...sun.classList);
     sun.classList.add("sun", "sun--clearMorning");
@@ -253,7 +250,7 @@ function clearM() {
     thunder.style.display = "none";
     mesure.style.opacity = 1;
 }
-
+//Clear Day
 function clearD() {
     sun.classList.remove(...sun.classList);
     sun.classList.add("sun", "sun--clearDay");
@@ -273,7 +270,7 @@ function clearD() {
     thunder.style.display = "none";
     mesure.style.opacity = 1;
 }
-
+//Clear Night
 function clearN() {
     sun.classList.remove(...sun.classList);
     sun.classList.add("sun", "sun--clearNight");
@@ -298,7 +295,7 @@ function clearN() {
     thunder.style.display = "none";
     mesure.style.opacity = 1;
 }
-
+//Clouds Morning
 function cloudM() {
     sun.classList.remove(...sun.classList);
     sun.classList.add("sun", "sun--cloudyMorning");
@@ -318,7 +315,7 @@ function cloudM() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Clouds Day
 function cloudD() {
     document.querySelector(".bigBox").display = "block";
     sun.classList.remove(...sun.classList);
@@ -339,7 +336,7 @@ function cloudD() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Clouds Night
 function cloudN() {
     sun.classList.remove(...sun.classList);
     sun.classList.add("sun", "sun--cloudyNight");
@@ -362,7 +359,7 @@ function cloudN() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Rain Morning
 function rainM() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--rainMorning");
@@ -381,7 +378,7 @@ function rainM() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Rain Day
 function rainD() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--rainDay");
@@ -400,7 +397,7 @@ function rainD() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Rain Night
 function rainN() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--rainNight");
@@ -422,7 +419,7 @@ function rainN() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Thunder Morning
 function thunderM() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--thunderMorning");
@@ -441,7 +438,7 @@ function thunderM() {
     thunder.style.display = "block";
     mesure.style.opacity = 0.3;
 }
-
+//Thunder Day
 function thunderD() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--thunderDay");
@@ -460,7 +457,7 @@ function thunderD() {
     thunder.style.display = "block";
     mesure.style.opacity = 0.3;
 }
-
+//Thunder Night
 function thunderN() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--thunderNight");
@@ -482,7 +479,7 @@ function thunderN() {
     thunder.style.display = "block";
     mesure.style.opacity = 0.3;
 }
-
+//Snow Morning
 function snowM() {
     container.classList.remove(...container.classList);
     container.classList.add("container", "container--snowMorning");
@@ -502,7 +499,7 @@ function snowM() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Snow Day
 function snowD() {
     document.querySelector(".bigBox").display = "block";
     container.classList.remove(...container.classList);
@@ -523,7 +520,7 @@ function snowD() {
     thunder.style.display = "none";
     mesure.style.opacity = 0.3;
 }
-
+//Snow Night
 function snowN() {
     document.querySelector(".bigBox").display = "block";
     container.classList.remove(...container.classList);
@@ -635,6 +632,7 @@ getLocationBtn.addEventListener("pointerdown", async d=>{
 })
 
 btnBack.addEventListener("pointerdown", e => {
+
     document.querySelector(".bigBox").style.display = "none";
     document.querySelector(".container2").style.display = "flex";
 })
@@ -650,244 +648,535 @@ btnBack.addEventListener("pointerdown", e => {
 // initMap();
 
 //DRAWER BUTTONS
+
+        
+       
+//close the search page to shows the weather page. 
+function containerToBigBox(){
+    let container2 = document.querySelector(".container2");
+    let bigBox = document.querySelector(".bigBox");
+    let container2Display = window.getComputedStyle(container2).display;
+    
+    if(container2Display == "flex"){
+        bigBox.style.display = "block";
+        container2.style.display = "none";
+    }
+};
+
+ 
 morningClear.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     clearM();
 })
 dayClear.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     clearD();
 })
 nightClear.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     clearN();
 })
 morningCloudy.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     cloudM();
 })
 dayCloudy.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     cloudD();
 })
 nightCloudy.addEventListener("pointerdown", e => {
+    e.stopPropagation()
+    containerToBigBox();
     cloudN();
 })
 morningRain.addEventListener("pointerdown", e => {
+    containerToBigBox();
     rainM();
 })
 dayRain.addEventListener("pointerdown", e => {
-
+    containerToBigBox();
     rainD();
 })
 nightRain.addEventListener("pointerdown", e => {
+    containerToBigBox();
     rainN();
 })
 morningThunder.addEventListener("pointerdown", e => {
+    containerToBigBox();
     thunderM();
 })
 dayThunder.addEventListener("pointerdown", e => {
+    containerToBigBox();
     thunderD();
 })
 nightThunder.addEventListener("pointerdown", e => {
+    containerToBigBox();
     thunderN();
 })
 morningSnowy.addEventListener("pointerdown", e => {
+    containerToBigBox();
     snowM();
 })
 daySnowy.addEventListener("pointerdown", e => {
+    containerToBigBox();
     snowD();
 })
-
 nightSnowy.addEventListener("pointerdown", e => {
+    containerToBigBox();
     snowN();
 })
-
-
-
-
 
 //DRAWER
 let drawerbox = document.querySelector(".drawerbox")
 let drawer = document.querySelector(".drawer");
 let arrowDown = drawerbox.querySelector(".arrow--drawer");
 let arrowDownHover = drawerbox.querySelector(".arrow--drawer:hover");
+console.log(window.innerHeight)
 
 //OPENING THE DRAWER AND CLOSING DRAWER WITH ARROWS
-// arrowDown.onpointerdown = function (event) {
- 
-//     event.preventDefault();
-//     let shiftY = event.clientY - arrowDown.getBoundingClientRect().top;
-//     let newTopWhenClicked = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
-//     let topEdge = drawerbox.offsetHeight - arrowDown.offsetHeight;
-//     let newTop;
-
-//     document.addEventListener("pointermove", onPointerMove);
-//     document.addEventListener("pointerup", onPointerUp);
-
-//     function onPointerMove(event) {
-//         drawer.style.display = "flex";
-       
-//         arrowDown.style.opacity = "0";
-//         newTop = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
-
-//         if (newTop < 0) {
-//             newTop = 0;
-//         }
-//         if (newTop > topEdge) {
-//             newTop = topEdge;
-//         }
-//         arrowDown.style.top = newTop + "px";
-//         drawer.style.height = newTop + "px"
-//     }
-
-//     function onPointerUp(event) {
-//         event.preventDefault();
-//         if (newTop === newTopWhenClicked) {
-//             arrowDown.style.opacity = "1";
-//         }
-
-//         if (newTopWhenClicked > 100) {
-//             animationDrawer(newTop, 700)
-//         } else {
-//             animationDrawer(newTop, 100)
-//         }
-//         document.removeEventListener('pointerup', onPointerUp);
-//         document.removeEventListener('pointermove', onPointerMove);
-//     }
-// };
-
-// //CLOSING THE DRAWER BY SWIPING
-// drawer.addEventListener("pointerdown", e => {
-//     let clientY = e.clientY;
-//     let newClientY;
- 
-//     drawer.addEventListener("pointermove", onPointerMove);
-//     drawer.addEventListener("pointerup", onPointerUp);
-
-//     function onPointerMove(e) {
-//         newClientY = e.clientY;
-
-//         if ((clientY - newClientY) > 50) {
-//             animationDrawer(0, 1)
-//         }
-
-//     }
-//     function onPointerUp() {
-
-//         document.removeEventListener('pointerup', onPointerUp);
-//         document.removeEventListener('pointermove', onPointerMove);
-//     }
-
-// })
-
-arrowDown.ontouchstart = (event) => {
-    event.stopPropagation();
+arrowDown.onpointerdown = function (event) {
     event.preventDefault();
+    event.stopPropagation();
+    let shiftY = event.clientY - arrowDown.getBoundingClientRect().top;
+    let newTopWhenClicked = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+    console.log(newTopWhenClicked + " QUOI")
+    let newTop;
+  
+  
+
+    document.addEventListener("pointermove", onPointerMove);
+    document.addEventListener("pointerup", onPointerUp);
+
+    function onPointerMove(event) {
+        event.preventDefault();
+        drawer.style.display = "flex";
+        newTop = event.clientY - shiftY - drawerbox.getBoundingClientRect().top;
+        
+        if (newTop < 0) {
+            newTop = 0;
+        }
+        if(newTop > 700){
+            newTop = 700;
+        }
+       
+        arrowDown.style.top = newTop + "px";
+        drawer.style.height = newTop + "px"
+      
+    }
+
+    function onPointerUp(event) {
+        event.preventDefault();
+        if(newTopWhenClicked < 50 && newTop > 100){
+            animationDrawer(1,0)
+        }else{
+            animationDrawer(0,1)
+        }
+        // if (newTopWhenClicked > 100) {
+        //     animationDrawer(newTop, 700)
+        //     console.log(">100 is newTop " + newTop + " " + newTopWhenClicked)
+        // }else {
+        //     animationDrawer(newTop, 100)
+        //     console.log("<100 is newTop " + newTop + " " + newTopWhenClicked)
+        // }
+        console.log("UP")
+        document.removeEventListener('pointerup', onPointerUp);
+        document.removeEventListener('pointermove', onPointerMove);
+    }
+};
+
+//CLOSING THE DRAWER BY SWIPING
+drawer.addEventListener("pointerdown", e => {
+    let clientY = e.clientY;
+    let newClientY;
+ 
+    drawer.addEventListener("pointermove", onPointerMove);
+    drawer.addEventListener("pointerup", onPointerUp);
+
+    function onPointerMove(e) {
+        
+        newClientY = e.clientY;
+
+
+        if ((clientY - newClientY) > 300) {
+          onPointerUp;
+          animationDrawer(0,1);
+        }
+    }
+    function onPointerUp() {
+        console.log("up")
+        drawer.removeEventListener('pointerup', onPointerUp);
+        drawer.removeEventListener('pointermove', onPointerMove);
+    }
+
+})
+
+function animationDrawer(newTop, top) {
+    console.log("animation " + newTop + " " + top)
+    if (newTop < top) {
+        console.log("animUP")
+        arrowDown.style.animation = "arrowUp 500ms both ease-out"
+        drawer.style.animation = "drawerUp 500ms both  ease-out"
+        setTimeout(() => {
+            arrowDown.style.animation ="";
+            drawer.style.animation ="";
+            arrowDown.style.top = "0px";
+            drawer.style.height = "0px";
+            console.log(window.getComputedStyle(drawer).height)
+           
+        }, 500)
+    }
+    if (newTop > top) {
+       console.log("animDOWN")
+        arrowDown.style.animation = "arrowDown 500ms ease-in-out"
+        drawer.style.animation = "drawerDown 500ms ease-in-out"
+        setTimeout(() => {
+            arrowDown.style.animation ="";
+            drawer.style.animation ="";
+            arrowDown.style.top = "600px";
+            drawer.style.height = "600px";
+            console.log(window.getComputedStyle(drawer).height)
+        }, 500)
+     }
+}
+
+
+//ON TOUCH DEVICE DRAWER ARROW DOWN AND UP
+arrowDown.addEventListener("touchstart", (event)=> {
+    event.preventDefault();
+
+    console.log("touchArrow")
     let shiftY = event.changedTouches[0].clientY - arrowDown.getBoundingClientRect().top;
     let newTopWhenClicked = event.changedTouches[0].clientY - shiftY - drawerbox.getBoundingClientRect().top;
     let topEdge = drawerbox.offsetHeight - arrowDown.offsetHeight;
+    console.log(topEdge);
     let newTop;
 
-    document.addEventListener("touchmove", onTouchMove);
-    document.addEventListener("touchend", onTouchEnd);
+    arrowDown.addEventListener("touchmove", onTouchMove);
+    arrowDown.addEventListener("touchend", onTouchEnd);
 
     function onTouchMove(event) {
+        event.preventDefault()
         drawer.style.display = "flex";
-       
-        arrowDown.style.opacity = "0";
         newTop = event.changedTouches[0].clientY - shiftY - drawerbox.getBoundingClientRect().top;
 
         if (newTop < 0) {
             newTop = 0;
         }
-        if (newTop > topEdge) {
-            newTop = topEdge;
+        if(newTop > 700){
+            newTop = 700;
         }
+       
         arrowDown.style.top = newTop + "px";
         drawer.style.height = newTop + "px"
+      
     }
+        
+    function onTouchEnd(event) {
+           event.preventDefault()
+           console.log("new top " + newTop + " new top when cliked " + newTopWhenClicked)
 
-    function onTouchEnd() {
-       
-        if (newTop === newTopWhenClicked) {
-            arrowDown.style.opacity = "1";
+        if(newTopWhenClicked < 50 && newTop > 100){
+            console.log("DOWN")
+            animationDrawer(1,0)
+        }else{
+            animationDrawer(0,1)
+            console.log("DOWN")
         }
-
-        if (newTopWhenClicked > 100) {
-            animationDrawer(newTop, 700)
-        } else {
-            animationDrawer(newTop, 100)
-        }
-        document.removeEventListener('touchmove', onTouchMove);
-        document.removeEventListener('touchend', onTouchEnd);
+        arrowDown.removeEventListener('touchmove', onTouchMove);
+        arrowDown.removeEventListener('touchend', onTouchEnd);
     }
    
-};
+});
 
-
+//ON TOUCH DEVICE CLOSE DRAWER BY SWIPING UP
 drawer.addEventListener("touchstart", e => {
+    e.preventDefault();
+    e.stopPropagation();
+  
     let clientY = e.changedTouches[0].clientY;
     let newClientY;
+    let drawerHeightWhenTouched = window.getComputedStyle(drawer).height;
+    console.log("drawerHeight : " + drawerHeightWhenTouched + " , clientY : " + clientY);
     
-    
-    document.addEventListener("touchmove", onPointerMove);
-    document.addEventListener("touchend", onPointerUp);
+    drawer.addEventListener("touchmove", onPointerMove);
+    drawer.addEventListener("touchend", onPointerUp);
 
     function onPointerMove(e) {
         newClientY = e.changedTouches[0].clientY;
-        console.log("moving: " + newClientY + " firstPosition: " + clientY);
-        if ((clientY - newClientY) > 50) {
-            animationDrawer(0, 1)
-        }
-
+        e.preventDefault()
+        console.log(clientY - newClientY);
+        if ((clientY - newClientY) > 250) {
+            onPointerUp;
+            animationDrawer(0,1);
+          }
     }
-    function onPointerUp() {
-        document.removeEventListener('touchmove', onPointerUp);
-        document.removeEventListener('touchend', onPointerMove);
+    function onPointerUp(e) {
+        e.preventDefault()
+        drawer.removeEventListener('touchmove', onPointerUp);
+        drawer.removeEventListener('touchend', onPointerMove);
     }
 });
 
 
+// document.querySelectorAll(".btn--drawer").forEach(button =>{
+  
+//     button.addEventListener("touchstart", (e)=>{
+//       e.preventDefault()
+//       e.stopPropagation()
+      
+//         console.log("btn")
+//     }, /*{passive: true}*/)
+// })
     
 
 
 
-function animationDrawer(newTop, top) {
-
-    if (newTop < top) {
-        arrowDown.addEventListener("pointerover", (e) => {
-
-            arrowDown.style.transform = "rotate(0deg)";
-            arrowDown.style.cursor = "pointer";
-            arrowDown.style.animation = "bouncesDown 500ms alternate infinite ease-in-out";
-            arrowDown.addEventListener("pointerout", e => {
-                arrowDown.style.animation = "";
-            })
 
 
-        })
-        arrowDown.style.animation = "arrowUnder60 5s  ease-out"
-        drawer.style.animation = "drawerUnder60 5s  ease-out"
-        setTimeout(() => {
-            arrowDown.style.animation = "";
-            arrowDown.style.top = "0";
-            arrowDown.style.transform = "rotate(0deg)";
-            arrowDown.style.opacity = "1";
-            drawer.style.animation = "";
-            drawer.style.height = "0px";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let newBox = document.querySelector(".newBox");
+let y = 1;
+var mousePosition;
+var offset = [0,0];
+var div;
+var isDown = false;
+let other;
+let mouseMvt;
+
+//SWIPING BUTTON LEFT AND RIGHTS
+document.querySelectorAll(".btn--container").forEach(element =>{
+    
+    element.addEventListener("pointerdown", e=>{
+      
+        e.preventDefault();
+        isDown = true;
+        offset = [
+            element.offsetLeft - e.clientX,
+            element.offsetTop - e.clientY
+        ];
+        other = offset[0] + e.clientX;
+        
+        document.addEventListener("pointermove", move);
+        document.addEventListener("pointerup", up);
+    
+        function up(){
+            isDown = false;
+            if(!(mouseMvt < -100) && !(mouseMvt > 100)){
+                element.style.animation = "slideBack 700ms"
+                console.log("pouch")
+                setTimeout(()=>{
+                    element.style.animation = "";
+                    element.style.left = "0";
+
+                },700)
+            }
+            document.removeEventListener("pointermove", move);
+            document.removeEventListener("pointerup", up);
+        };
+    
+        function move(e){
+        
+
+            e.preventDefault();
+            if (isDown) {
+                mousePosition = {
+                    x : e.clientX,
+                    y : e.clientY
+            
+                };
+                mouseMvt = parseInt(other) - (parseInt(mousePosition.x) + parseInt(offset[0]));
+                element.style.left = (mousePosition.x + offset[0]) + 'px';
+                
+            
+                if(mouseMvt > 100){
+                console.log("left")
+                element.style.animation = "slideLeft 700ms forwards"
+            
+                    up()
+                    setTimeout(()=>{
+                        element.style.animation = ""
+                        element.style.left ="0px";
+                        newDiv(-1);
+                    
+                    },1000)
+                }
+
+                if(mouseMvt < -100){
+                    console.log("right")
+                    element.style.animation = "slideRight 700ms forwards"
+                    up()
+                    setTimeout(()=>{
+                        element.style.animation = ""
+                        element.style.left ="0px";
+                        newDiv(1);
+
+                    },1000)
+                }
+        };
+    }
+ 
+    function newDiv(e){
+        console.log(`${y} before something happens`)
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display = "none";
+       
+        y = y + e;
+        if(y < 1){
+            y = 5;
+        }
+        if(y > 5){
+            y = 1;
+        }
+        console.log(`${y} after change`)
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display = "flex";
+
+    }
+
+    });
+
+    //ON TOUCH START
+    element.addEventListener("touchstart", e=>{
+        console.log(element.dataset.id)
+        e.preventDefault();
+        
+        isDown = true;
+        offset = [
+            element.offsetLeft - e.changedTouches[0].clientX,
+            element.offsetTop - e.changedTouches[0].clientY
+        ];
+        other = offset[0] + e.changedTouches[0].clientX;
+        console.log(other)
+        
+        document.addEventListener("touchmove", move);
+        document.addEventListener("touchend", up);
+    
+        function up(){
+            isDown = false;
+            console.log(mouseMvt);
+            if(!(mouseMvt <= -100) && !(mouseMvt >= 100)){
+                element.style.animation = "slideBack 700ms"
+                console.log("pouch")
+                setTimeout(()=>{
+                    element.style.animation = "";
+                    element.style.left = "0";
+
+                },700)
+            }
            
-        }, 5000)
-    }
-    if (newTop > top) {
+            document.removeEventListener("touchmove", move);
+            document.removeEventListener("touchend", up);
+        };
+    
+        function move(e){
+           
+            if (isDown) {
+                mousePosition = {
+                    x : e.changedTouches[0].clientX,
+                    y : e.changedTouches[0].clientY
+            
+                };
+                mouseMvt = parseInt(other) - (parseInt(mousePosition.x) + parseInt(offset[0]));
+                element.style.left = (mousePosition.x + offset[0]) + 'px';
+                console.log(mouseMvt);
+            
+                if( mouseMvt > 100){
+                    element.style.animation = "slideLeft 700ms forwards"
+            
+                    up()
+                    setTimeout(()=>{
+                        element.style.animation = ""
+                        element.style.left = "0px";
+                        newDiv(-1);
+                    
+                    },1000)
+                }
 
-        arrowDown.style.animation = "arrowOver300 5000ms ease-out"
-        drawer.style.animation = "drawerOver300 5000ms ease-out"
-        setTimeout(() => {
-            arrowDown.style.animation = "";
-            arrowDown.style.top = "600px";
-            arrowDown.style.transform = "rotate(180deg)";
-            drawer.style.animation = "";
-            drawer.style.height = "600px";
-            arrowDown.style.opacity = "1";
-        }, 5000)
+                if( mouseMvt< -100){
+                    console.log("right")
+                    element.style.animation = "slideRight 700ms forwards"
+                    up()
+                    setTimeout(()=>{
+                        element.style.animation = ""
+                        element.style.left ="0px";
+                        newDiv(1);
+
+                    },1000)
+                }
+        };
     }
-}
+    //If right, +1 either -1 to get the new set of buttons
+    function newDiv(e){
+     
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display = "none";
+       
+        y = y + e;
+        if(y < 1){
+            y = 5;
+        }
+        if(y > 5){
+            y = 1;
+        }
+      
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display = "flex";
+
+    }
+    });
+}); 
+
+
 
 
 let rainChild = 0;
@@ -902,6 +1191,41 @@ function rainWidthIsNotEmpty() {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function rainFall() {
     rainWidthIsNotEmpty();
@@ -930,6 +1254,7 @@ window.addEventListener("resize", e => {
     rainChild = 0;
     rainWidthIsNotEmpty();
     rainFall();
-})
+});
+
 
 

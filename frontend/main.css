@@ -6,6 +6,7 @@
 
 body{
     background: #000;
+    font-family: 'Be Vietnam Pro', sans-serif;
 
 }
 .bigBox{
@@ -659,13 +660,24 @@ body{
 
 
 .container2{
-    height: 100vh;
+    height: 60%;
     width: 100vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
+
+.weatherAPP h1{
+    color: #FFF;
+  
+
+}
+.weatherAPP p{
+    font-family: 'Clicker Script', cursive;
+    width: 100%;
+}
+
 
 .container2 input{
     width: 40%;
@@ -675,10 +687,12 @@ body{
     text-align: center;
     font-size: 3vh;
     z-index:3;
+   
 }
 
 .container2 p{
-    color: #FFF
+    color: #FFF;
+    border:1px solid salmon;
 }
 
 .container2--btn{
@@ -712,7 +726,6 @@ body{
 }
 
 
-
 .drawerbox{
     display: flex;
     width: 100vw;
@@ -727,7 +740,7 @@ body{
     z-index: 8;
     height: 44px;
     top: 0; 
-    
+    margin: -20px 0 0 0;
 }
 
 .arrow--drawer:hover{
@@ -735,8 +748,9 @@ body{
 }
 
 .arrow--drawer img{
-    height: 44px;
-    width: 44px;
+    height: 64px;
+    width: 64px;
+    transform: scale(.9);
     z-index: 8!important;
 }
 .arrow--drawer__up{
@@ -752,12 +766,12 @@ body{
 }
 .drawer{
     position: absolute;
-    top: 0;
-    height: 0px;
+    top: 0px;
+    height: 0;
     border: 1px solid #FFF;
     border-radius: 0 0 35px 35px;
     border-top: none ;
-    display: none;
+    display: flex;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
@@ -769,28 +783,66 @@ body{
     
 }
 .drawer--box{
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border: 1px solid #57ff41;
+    background-color:#001AFF;
     height: 100%;
     width: 100%;
 }
 .drawer img{
     height: 44px;
+   
 }
 .drawer img:hover{
     cursor: pointer;
 }
-.drawer--btnContainer{
-    
+
+.drawer--box{
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    width: 50%;
-    border: 1px solid red;
+    align-items: center;
+    justify-content: center;
+    
 }
+
+.newBox{
+    display: flex;
+    position: absolute;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff;
+    height: 200px;
+    width: 70%;
+    
+}
+
+
+.btn--container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    color: #FFF;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn--container:nth-child(1){
+    display: flex;
+    
+}
+
+
+.btn--back{
+    position: block;
+    width: 100%;
+    
+}
+
 
 .drawer--btnOptions{
     
@@ -798,17 +850,17 @@ body{
     height: auto;
     border: 1px solid salmon;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 .btnContainer--div{
     display: flex;
     justify-content: space-around;
     border: 1px solid orange;
 }
-.btn--back{
-    width: 25%;
-    border: 1px solid violet;
-}
+
 .btn--drawer{
     width: 88px;
     height: 44px;
@@ -819,7 +871,8 @@ body{
     margin: 10px;  
     text-align: center;
     border-radius: 10px;
-    background-color: #00c3ff;
+   border: 1px solid #00c3ff;
+   color: #FFF
 
 }
 
@@ -829,23 +882,22 @@ body{
 
 
 
-@keyframes drawerUnder60{
+@keyframes drawerUp{
     from {}
     to{height: 0px;}
 }
-
-@keyframes arrowUnder60{
-    from {transform: rotate(180deg); opacity: 0}
-    to{top: 0px;  transform: rotate(0);  opacity: 1}
+@keyframes arrowUp{
+    from {}
+    to {top: 0px; }
 }
-@keyframes drawerOver300{
+@keyframes drawerDown{
     from { }
     to{height:600px;}
 }
 
-@keyframes arrowOver300{
-    from { opacity: 0 }
-    to{top: 600px; transform: rotate(180deg); opacity: 1;}
+@keyframes arrowDown{
+    from { }
+    to{top: 600px; }
 }
 
 @keyframes bouncesDown {
@@ -856,7 +908,6 @@ body{
     from {transform: translateY(0) rotate(180deg);}
     to{transform: translateY(5px) rotate(180deg);}
 }
-
 @keyframes sunnyHalo {
     from {
         transform: scale(1);
@@ -871,7 +922,6 @@ body{
         transform: scale(1.05);
     }
 }
-
 @keyframes fadeInAndOut{
     0%{opacity:0}
     30%{opacity:1}
@@ -879,7 +929,6 @@ body{
     100%{opacity:0}
     
 }
-
 @keyframes snow {
     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
@@ -900,13 +949,11 @@ body{
   50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
   100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
 }	
-
 @keyframes rainFall{
     0%{ transform: translateY(0); opacity: 1;}
     50%{opacity: 1;}
     100%{ transform: translateY(500px) scaleY(30); opacity: 0;}
 }
-
 @keyframes lightning {
     0% {background: none;}
     20% {background: none;}
@@ -1005,6 +1052,7 @@ body{
 
     .drawerBox{
         height: 50vh;
+        transform-origin: top;
     
     }
     
@@ -1052,6 +1100,47 @@ body{
         margin: 140px 0 0 0;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+@keyframes slideRight{
+    from{}
+    to{transform: translateX(300px); opacity: 0;}
+}
+@keyframes slideLeft{
+    from{}
+    to{ transform: translateX(-300px); opacity: 0;}
+}
+@keyframes slideBack{
+    from{}
+    to{left:0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 header{
