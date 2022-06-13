@@ -667,7 +667,11 @@ body{
     justify-content: center;
     align-items: center;
 }
+.weatherAPP{
+    position: absolute;
+    margin: 100px 0 0 0;
 
+}
 .weatherAPP h1{
     color: #FFF;
   
@@ -713,6 +717,18 @@ body{
 .container2--btn:hover{
     cursor: pointer;
 }
+.error-message{
+    color: red;
+    width: 39%;
+    border: 1px solid red;
+    border-radius: 35px;
+    padding: 10px 0;
+    text-align: center;
+    display: none;
+    
+}
+
+
 .mesure:hover{
     cursor: pointer;
     
@@ -727,18 +743,18 @@ body{
 
 
 .drawerbox{
+    position: absolute;
     display: flex;
     width: 100vw;
     height: 100vh;
-    position: absolute;
     justify-content: center;
-
+    
 }
 .arrow--drawer{
     position: absolute;
     display: flex;
     z-index: 8;
-    height: 44px;
+    height: 88px;
     top: 0; 
     margin: -20px 0 0 0;
 }
@@ -748,10 +764,10 @@ body{
 }
 
 .arrow--drawer img{
-    height: 64px;
-    width: 64px;
-    transform: scale(.9);
-    z-index: 8!important;
+    height: 88px;
+    width: 88px;
+    transform: scale(.8);
+    z-index: 10!important;
 }
 .arrow--drawer__up{
     cursor: pointer;
@@ -763,6 +779,7 @@ body{
     justify-content: center;
     align-items: center;
     
+    
 }
 .drawer{
     position: absolute;
@@ -771,30 +788,20 @@ body{
     border: 1px solid #FFF;
     border-radius: 0 0 35px 35px;
     border-top: none ;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.829);
-    margin:auto;
-    width: 90%;
+    background-color: rgba(0, 0, 0, 0.950);
+    width: 95%;
     z-index: 5;
-    overflow: hidden;
     
 }
 .drawer--box{
-    position: absolute;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #57ff41;
-    background-color:#001AFF;
+    background-color:#0000003f;
     height: 100%;
     width: 100%;
 }
 .drawer img{
     height: 44px;
-   
+    
 }
 .drawer img:hover{
     cursor: pointer;
@@ -802,65 +809,100 @@ body{
 
 .drawer--box{
     display: flex;
+    flex-flow: row  wrap;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    color: #fff;
     
 }
 
+.drawer--box__back{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  
+}
+.btn--drawer{
+    padding: 10px;
+    height: 34px;
+    width: 88px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+}
+.btn--back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+.btn--backToIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+.drawer--box__swip{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newBox--arrowLeft{
+    transform: rotate(180deg);
+    width: 10%;
+}
+.newBox--arrowLeft img, .newBox--arrowRight img{
+    object-fit:cover;
+    width: 100%;
+}
+.newBox--arrowRight{
+    width: 10%;
+  
+}
 .newBox{
     display: flex;
-    position: absolute;
-    overflow: hidden;
     justify-content: center;
     align-items: center;
-    border: 1px solid #fff;
-    height: 200px;
     width: 70%;
-    
-}
-
-
-.btn--container{
     height: 100%;
-    width: 100%;
-    position: absolute;
-    color: #FFF;
+   
+   
+}
+.newBox :nth-child(1){
+    display: flex;
+    
+}
+.btn--container{
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn--container:nth-child(1){
-    display: flex;
-    
-}
-
-
-.btn--back{
-    position: block;
+    flex-flow: row wrap;
+    justify-content: space-between;
     width: 100%;
+    height: 100%;
     
 }
-
-
-.drawer--btnOptions{
-    
-    width: 25%;
-    height: auto;
-    border: 1px solid salmon;
+.weatherType{
+    width: 100%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 100px 0 0 0;
+}
+.btn--weather{
+    width: 25%;
 }
 
-
-.btnContainer--div{
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid orange;
+a{
+    text-decoration: none;
 }
-
+a:visited{
+    color: wheat;
+}
 .btn--drawer{
     width: 88px;
     height: 44px;
@@ -871,13 +913,25 @@ body{
     margin: 10px;  
     text-align: center;
     border-radius: 10px;
-   border: 1px solid #00c3ff;
-   color: #FFF
+    color: rgba(255,255,255,0.7);
+
+  
+    background-size: 150%;
+    background-position: right;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: 500ms;
 
 }
-
 .btn--drawer:hover{
-    cursor: pointer;
+    
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+}
+.btn--drawer:active{
+   
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 }
 
 
@@ -1050,11 +1104,7 @@ body{
         width: 100vh;
     }
 
-    .drawerBox{
-        height: 50vh;
-        transform-origin: top;
     
-    }
     
     .test{
         width: 100vw;
@@ -1098,6 +1148,14 @@ body{
     }
     .mesure{
         margin: 140px 0 0 0;
+    }
+
+    .newBox{
+        flex-direction: column;
+        width: 80%;
+    }
+    .newBox div{
+        width: 100%;
     }
 }
 
@@ -1195,3 +1253,4 @@ header a:active{
 header a:visited{
    color:rgba(139, 139, 139, 0.829)
 }
+

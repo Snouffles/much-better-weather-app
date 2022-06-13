@@ -16,61 +16,76 @@
 </head>
 
 <body>
+    <header class="weatherAPP">
+        <h1>A BETTER WEATHER APP!</h1>
+        <p>Well, at least a prettier...</p>
+        <div class="container2">
+            <input id="input" type="text"/>
+            <div class="error-message">UNE ERREUR</div>
+            <div class= "container2--btn" id="search">Search</div>
+            <div class= "container2--btn" id="getLocation">Get Device Location</div>
+        </div>
+    </header>
     <!--HIDDEN DRAWER-->
     <div id="drawerbox" class="drawerbox">
         <div class="arrow--drawer" >
-        <img src="./asset/drawer.png" alt="arrow down for drawer"/>
+            <img src="./asset/drawer.png" alt="arrow down for drawer"/>
         </div>
     </div>
     <div class="drawer--container">
         <div class="drawer">
             <div class="drawer--box">
-                <div class="newBox">
-                    <div class="btn--container">
-                        <div>CLEAR</div>
-                        <div class="btn--drawer btn--weather" id="clearyMorning">MORNING</div>
-                        <div class="btn--drawer btn--weather" id="clearyDay">DAY</div>
-                        <div class="btn--drawer btn--weather" id="clearyNight">NIGHT</div>
+                <div class="drawer--box__back">
+                    <div class="btn--back">
+                        <div class="btn--drawer">BACK</div>
                     </div>
-                    <div class="btn--container">
-                       <div>CLOUDS</div>
-                        <div class="btn--drawer btn--weather" id="cloudyMorning">MORNING</div>
-                        <div class="btn--drawer btn--weather" id="cloudyDay">DAY</div>
-                        <div class="btn--drawer btn--weather" id="cloudyNight">NIGHT</div>
-                    </div>
-                    <div class="btn--container">
-                        <div>RAIN</div>
-                        <div class="btn--drawer btn--weather" id="rainyMorning">MORNING</div>
-                        <div class="btn--drawer btn--weather" id="rainyDay">DAY</div>
-                        <div class="btn--drawer btn--weather" id="rainyNight">NIGHT</div>
-                    </div>
-                    <div class="btn--container">
-                        <div>THUNDER</div>   
-                        <div class="btn--drawer btn--weather" id="thunderyMorning">MORNING</div>
-                        <div class="btn--drawer btn--weather" id="thunderyDay">DAY</div>
-                        <div class="btn--drawer btn--weather" id="thunderyNight">NIGHT</div>
-                    </div>
-                    <div class="btn--container">
-                        <div>SNOW</div>
-                        <div class="btn--drawer btn--weather" id="snowyMorning">MORNING</div>
-                        <div class="btn--drawer btn--weather" id="snowyDay">DAY</div>
-                        <div class="btn--drawer btn--weather" id="snowyNight">NIGHT</div>
+                    <div class="btn--backToIndex">
+                        <a href="./index.html"><div class="btn--drawer">PORTFOLIO</div></a>
                     </div>
                 </div>
-                <div class="btn--back">
-                    <div class="btn--drawer">BACK</div>
-                </div>
-                <div class="btn--backToIndex">
-                    <a href="index.html"><div class="btn--drawer">PORTFOLIO</div></a>
+                <div class="drawer--box__swip">
+                    <div class="newBox--arrowLeft">
+                        <img src="./asset/arrow-grain.svg" alt="arrowSwipLeft"/>
+                    </div>
+                    <div class="newBox">
+                        <div class="btn--container">
+                            <div class="weatherType">CLEAR WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="clearyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="clearyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="clearyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                        <div class="weatherType">CLOUDY WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="cloudyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="cloudyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="cloudyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">RAINY WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="rainyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="rainyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="rainyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">THUNDER WEATHER</div>   
+                            <div class="btn--drawer btn--weather" id="thunderyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="thunderyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="thunderyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">SNOW WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="snowyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="snowyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="snowyNight">NIGHT</div>
+                        </div>
+                    </div>
+                    <div class="newBox--arrowRight">
+                        <img src="./asset/arrow-grain.svg" alt="arrowSwipRight"/>    
+                    </div>
                 </div>
             </div> 
         </div>
     </div>
-    
-    
-    
-    
-    
     <!--WEATHERS BOX-->
     <div class="bigBox">
         <div class="backgroundGrain">
@@ -120,17 +135,7 @@
             </div>
         </div>
     </div>
-   
     <!--searchBox-->
-    <header class="weatherAPP">
-        <h1>A BETTER WEATHER APP!</h1>
-        <p>Well, at least a prettier...</p>
-        <div class="container2">
-            <input id="input" type="text"/>
-            <div class= "container2--btn" id="search">Search</div>
-            <div class= "container2--btn" id="getLocation">Get Device Location</div>
-        </div>
-    </header>
     
     <script src="./script.js" async defer></script>
 
