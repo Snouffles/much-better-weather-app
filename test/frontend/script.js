@@ -1113,6 +1113,50 @@ document.querySelectorAll(".btn--container").forEach((element) => {
   });
 });
 
+document.querySelector(".newBox--arrowLeft").addEventListener("pointerdown", e=>{
+    document.querySelector(`.btn--container:nth-child(${y})`).style.animation = "slideLeft 700ms forwards"
+    document.querySelector(".newBox--arrowLeft").style.pointerEvents = "none";
+    
+    setTimeout(()=>{
+        document.querySelector(".newBox--arrowLeft").style.pointerEvents = "auto";
+        document.querySelector(`.btn--container:nth-child(${y})`).style.animation = "";
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display =
+        "none";
+        y = y - 1;
+        if (y < 1) {
+            y = 5;
+          }
+          if (y > 5) {
+            y = 1;
+          }
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display =
+        "flex";
+    },1000)
+});
+
+
+document.querySelector(".newBox--arrowRight").addEventListener("pointerdown", e=>{
+    document.querySelector(`.btn--container:nth-child(${y})`).style.animation = "slideRight 700ms forwards"
+    document.querySelector(".newBox--arrowLeft").style.pointerEvents = "none";
+    setTimeout(()=>{
+        document.querySelector(".newBox--arrowLeft").style.pointerEvents = "auto";
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display =
+        "none";
+        document.querySelector(`.btn--container:nth-child(${y})`).style.animation = "";
+        y= y + 1 ;
+        if (y < 1) {
+            y = 5;
+          }
+          if (y > 5) {
+            y = 1;
+          }
+        document.querySelector(`.btn--container:nth-child(${y})`).style.display =
+        "flex";
+       
+    },1000)
+})
+
+
 let rainChild = 0;
 let rainWidth = innerWidth;
 
