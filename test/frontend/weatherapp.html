@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./asset/favicon.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@800&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
+    <title>A Weather App, but prettier</title>
+</head>
+
+<body>
+    <header class="weatherAPP">
+        <h1>A BETTER WEATHER APP!</h1>
+        <p>Well, at least a prettier...</p>
+        <div class="container2">
+            <input id="input" type="text"/>
+            <div class="error-message">UNE ERREUR</div>
+            <div class= "container2--btn" id="search">Search</div>
+            <div class= "container2--btn" id="getLocation">Get Device Location</div>
+        </div>
+    </header>
+    <!--HIDDEN DRAWER-->
+    <div id="drawerbox" class="drawerbox">
+        <div class="arrow--drawer" >
+            <img src="./asset/drawer.webp" alt="arrow down for drawer"/>
+        </div>
+    </div>
+    <div class="drawer--container">
+        <div class="drawer">
+            <div class="drawer--box">
+                <div class="drawer--box__back">
+                    <div class="btn--back">
+                        <div class="btn--drawer">BACK</div>
+                    </div>
+                    <div class="btn--backToIndex">
+                        <div class="btn--drawer">PORTFOLIO</div>
+                    </div>
+                </div>
+                <div class="drawer--box__swip">
+                    <div class="newBox--arrowLeft">
+                        <img src="./asset/arrow-grain.svg" alt="arrowSwipLeft"/>
+                    </div>
+                    <div class="newBox">
+                        <div class="btn--container">
+                            <div class="weatherType">CLEAR WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="clearyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="clearyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="clearyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                        <div class="weatherType">CLOUDY WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="cloudyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="cloudyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="cloudyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">RAINY WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="rainyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="rainyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="rainyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">THUNDER WEATHER</div>   
+                            <div class="btn--drawer btn--weather" id="thunderyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="thunderyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="thunderyNight">NIGHT</div>
+                        </div>
+                        <div class="btn--container">
+                            <div class="weatherType">SNOW WEATHER</div>
+                            <div class="btn--drawer btn--weather" id="snowyMorning">MORNING</div>
+                            <div class="btn--drawer btn--weather" id="snowyDay">DAY</div>
+                            <div class="btn--drawer btn--weather" id="snowyNight">NIGHT</div>
+                        </div>
+                    </div>
+                    <div class="newBox--arrowRight">
+                        <img src="./asset/arrow-grain.svg" alt="arrowSwipRight"/>    
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!--WEATHERS BOX-->
+    <div class="bigBox">
+        <div class="backgroundGrain">
+            <div class="backgroundGrain--box">
+                <svg   xmlns='http://www.w3.org/2000/svg' opacity=".3">
+                    <filter id='noiseFilter'>
+                        <feTurbulence type='fractalNoise' 
+                        baseFrequency="9.99" numOctaves='3' 
+                        stitchTiles='stitch' />
+                    </filter>
+                    <rect width='100%' height='100%' filter='url(#noiseFilter)' />
+                </svg>
+            </div>
+        </div>
+        
+        <div class="box">
+            <div class="container">
+                <div class="cloudy">
+                    <img src="./asset/clouds.webp" alt="clouds"/>
+                </div>
+                <div class="sun">
+                    <div class="sun3"></div>
+                    <div class="sun2"></div>
+                    <div class="sun1"></div>
+                </div>
+                <div class="star">
+                    <img id="starTopRight" src="./asset/Subtract.webp" alt="Star">
+                    <img id="starTopLeft" src="./asset/Subtract1.webp" alt="Star">
+                    <img class="starBottom" id="starBottomRight" src="./asset/Subtract.webp" alt="Star">
+                    <img class="starBottom" id="starBottomLeft" src="./asset/Subtract.webp" alt="Star">
+                </div>
+                <div class="snow">
+                </div>
+                <div class="rain">
+                </div>
+                <div class="thunder">
+                    <img src="./asset/thunder1.webp" alt="Thunders bolt">
+                    <img src="./asset/thunder2.webp" alt="Thunders bolt">
+                </div>
+                <div class="info">
+                    <div class="date">22<span><br/>JAN<br/>22</span></div>
+                    <div class="time">22:22</div>
+                    <div class="temperature">17</div>
+                    <div class="town">STOCKHOLM</div>
+                    <div class="mesure">C°</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--searchBox-->
+    
+    <script src="./script.js" async defer></script>
+
+</body>
+
+</html>
+
+
+

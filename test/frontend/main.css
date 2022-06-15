@@ -6,6 +6,7 @@
 
 body{
     background: #000;
+    font-family: 'Be Vietnam Pro', sans-serif;
 
 }
 .bigBox{
@@ -659,13 +660,28 @@ body{
 
 
 .container2{
-    height: 100vh;
+    height: 60%;
     width: 100vw;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
+.weatherAPP{
+    position: absolute;
+    margin: 100px 0 0 0;
+
+}
+.weatherAPP h1{
+    color: #FFF;
+  
+
+}
+.weatherAPP p{
+    font-family: 'Clicker Script', cursive;
+    width: 100%;
+}
+
 
 .container2 input{
     width: 40%;
@@ -675,10 +691,12 @@ body{
     text-align: center;
     font-size: 3vh;
     z-index:3;
+   
 }
 
 .container2 p{
-    color: #FFF
+    color: #FFF;
+    border:1px solid salmon;
 }
 
 .container2--btn{
@@ -699,6 +717,18 @@ body{
 .container2--btn:hover{
     cursor: pointer;
 }
+.error-message{
+    color: red;
+    width: 39%;
+    border: 1px solid red;
+    border-radius: 35px;
+    padding: 10px 0;
+    text-align: center;
+    display: none;
+    
+}
+
+
 .mesure:hover{
     cursor: pointer;
     
@@ -712,22 +742,21 @@ body{
 }
 
 
-
 .drawerbox{
+    position: absolute;
     display: flex;
     width: 100vw;
     height: 100vh;
-    position: absolute;
     justify-content: center;
-
+    
 }
 .arrow--drawer{
     position: absolute;
     display: flex;
     z-index: 8;
-    height: 44px;
+    height: 88px;
     top: 0; 
-    
+    margin: -20px 0 0 0;
 }
 
 .arrow--drawer:hover{
@@ -735,9 +764,10 @@ body{
 }
 
 .arrow--drawer img{
-    height: 44px;
-    width: 44px;
-    z-index: 8!important;
+    height: 88px;
+    width: 88px;
+    transform: scale(.8);
+    z-index: 10!important;
 }
 .arrow--drawer__up{
     cursor: pointer;
@@ -749,65 +779,131 @@ body{
     justify-content: center;
     align-items: center;
     
+    
 }
 .drawer{
     position: absolute;
-    top: 0;
-    height: 0px;
+    top: 0px;
+    height: 0;
     border: 1px solid #FFF;
     border-radius: 0 0 35px 35px;
     border-top: none ;
-    display: none;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.829);
-    margin:auto;
-    width: 90%;
+    background-color: rgba(0, 0, 0, 0.950);
+    width: 95%;
     z-index: 5;
-    overflow: hidden;
     
 }
 .drawer--box{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #57ff41;
+    background-color:#0000003f;
     height: 100%;
     width: 100%;
 }
 .drawer img{
     height: 44px;
+    
 }
 .drawer img:hover{
     cursor: pointer;
 }
-.drawer--btnContainer{
-    
+
+.drawer--box{
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-flow: row  wrap;
+    align-items: center;
     justify-content: space-around;
-    width: 50%;
-    border: 1px solid red;
+    color: #fff;
+    
 }
 
-.drawer--btnOptions{
-    
-    width: 25%;
-    height: auto;
-    border: 1px solid salmon;
+.drawer--box__back{
+    width: 100%;
     display: flex;
-}
-
-.btnContainer--div{
-    display: flex;
+    align-items: center;
     justify-content: space-around;
-    border: 1px solid orange;
+  
+}
+.btn--drawer{
+    padding: 10px;
+    height: 34px;
+    width: 88px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
 }
 .btn--back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+.btn--backToIndex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+}
+.drawer--box__swip{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newBox--arrowLeft{
+    transform: rotate(180deg);
+    width: 10%;
+}
+.newBox--arrowLeft img, .newBox--arrowRight img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    max-height: 88px;
+}
+.newBox--arrowRight{
+    width: 10%;
+  
+}
+.newBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+   
+   
+}
+.newBox :nth-child(1){
+    display: flex;
+    
+}
+.btn--container{
+    display: none;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    
+}
+.weatherType{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0 0 0;
+}
+.btn--weather{
     width: 25%;
-    border: 1px solid violet;
+}
+
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: wheat;
 }
 .btn--drawer{
     width: 88px;
@@ -819,33 +915,43 @@ body{
     margin: 10px;  
     text-align: center;
     border-radius: 10px;
-    background-color: #00c3ff;
-
-}
-
-.btn--drawer:hover{
+    color: rgba(255,255,255,0.7);
+    background-size: 150%;
+    background-position: right;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,0.5), 0px 0px 10px rgba(0,0,0,0.15);
     cursor: pointer;
+    transition: 500ms;
+
+}
+.btn--drawer:hover{
+    
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
+}
+.btn--drawer:active{
+   
+    color: white;
+    box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 }
 
 
 
-@keyframes drawerUnder60{
+@keyframes drawerUp{
     from {}
     to{height: 0px;}
 }
-
-@keyframes arrowUnder60{
-    from {transform: rotate(180deg); opacity: 0}
-    to{top: 0px;  transform: rotate(0);  opacity: 1}
+@keyframes arrowUp{
+    from {}
+    to {top: 0px; }
 }
-@keyframes drawerOver300{
+@keyframes drawerDown{
     from { }
     to{height:600px;}
 }
 
-@keyframes arrowOver300{
-    from { opacity: 0 }
-    to{top: 600px; transform: rotate(180deg); opacity: 1;}
+@keyframes arrowDown{
+    from { }
+    to{top: 600px; }
 }
 
 @keyframes bouncesDown {
@@ -856,7 +962,6 @@ body{
     from {transform: translateY(0) rotate(180deg);}
     to{transform: translateY(5px) rotate(180deg);}
 }
-
 @keyframes sunnyHalo {
     from {
         transform: scale(1);
@@ -871,7 +976,6 @@ body{
         transform: scale(1.05);
     }
 }
-
 @keyframes fadeInAndOut{
     0%{opacity:0}
     30%{opacity:1}
@@ -879,7 +983,6 @@ body{
     100%{opacity:0}
     
 }
-
 @keyframes snow {
     0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
     50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
@@ -900,13 +1003,11 @@ body{
   50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
   100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
 }	
-
 @keyframes rainFall{
     0%{ transform: translateY(0); opacity: 1;}
     50%{opacity: 1;}
     100%{ transform: translateY(500px) scaleY(30); opacity: 0;}
 }
-
 @keyframes lightning {
     0% {background: none;}
     20% {background: none;}
@@ -1003,10 +1104,7 @@ body{
         width: 100vh;
     }
 
-    .drawerBox{
-        height: 50vh;
     
-    }
     
     .test{
         width: 100vw;
@@ -1051,7 +1149,56 @@ body{
     .mesure{
         margin: 140px 0 0 0;
     }
+
+    .newBox{
+        flex-direction: column;
+        width: 80%;
+    }
+    .newBox div{
+        width: 100%;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+@keyframes slideRight{
+    from{}
+    to{transform: translateX(300px); opacity: 0;}
+}
+@keyframes slideLeft{
+    from{}
+    to{ transform: translateX(-300px); opacity: 0;}
+}
+@keyframes slideBack{
+    from{}
+    to{left:0;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 header{
@@ -1106,3 +1253,4 @@ header a:active{
 header a:visited{
    color:rgba(139, 139, 139, 0.829)
 }
+
