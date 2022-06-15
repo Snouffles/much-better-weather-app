@@ -670,6 +670,8 @@ body{
 .weatherAPP{
     position: absolute;
     margin: 100px 0 0 0;
+    display: flex;
+    flex-flow: column nowrap;
 
 }
 .weatherAPP h1{
@@ -681,6 +683,8 @@ body{
     font-family: 'Clicker Script', cursive;
     width: 100%;
     margin: .3rem 0 0 0;
+    color: #FFF;
+    text-align: center;
 }
 
 .weatherAPP label{
