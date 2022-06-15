@@ -1243,6 +1243,9 @@ a:visited{
     .newBox div{
         width: 100%;
     }
+    .weatherAPP h1{
+        font-size: 1.4rem;
+    }
 }
 
 
