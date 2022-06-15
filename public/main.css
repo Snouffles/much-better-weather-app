@@ -674,17 +674,19 @@ body{
 }
 .weatherAPP h1{
     color: #FFF;
-  
+    margin:auto;
 
 }
 .weatherAPP p{
     font-family: 'Clicker Script', cursive;
     width: 100%;
+    margin: .3rem 0 0 0;
 }
 
 .weatherAPP label{
     color: #fff;
     font-family: 'Clicker Script', cursive;
+    margin: 5% 0 20px 0;
 }
 
 
@@ -801,8 +803,13 @@ body{
 .drawer--box{
     display: flex;
     background-color:#0000003f;
+    flex-flow: row  wrap;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
     height: 100%;
-    width: 100%;
+    width: 60%;
+    margin: auto;
 }
 .drawer img{
     height: 44px;
@@ -812,14 +819,6 @@ body{
     cursor: pointer;
 }
 
-.drawer--box{
-    display: flex;
-    flex-flow: row  wrap;
-    align-items: center;
-    justify-content: space-around;
-    color: #fff;
-    
-}
 
 .drawer--box__back{
     width: 100%;
@@ -887,18 +886,19 @@ body{
 .btn--container{
     display: none;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
-    height: 100%;
+    height: 50vh;
+    margin: 0;
     
 }
 .weatherType{
     width: 100%;
-    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 100px 0 0 0;
+    margin: auto;
+    
 }
 .btn--weather{
     width: 25%;
@@ -939,6 +939,18 @@ a:visited{
     box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 }
 
+@keyframes slideRight{
+    from{}
+    to{ transform: translateX(300px); opacity: 0;}
+}
+@keyframes slideLeft{
+    from{}
+    to{ transform: translateX(-300px); opacity: 0;}
+}
+@keyframes slideBack{
+    from{}
+    to{left:0;}
+}
 
 
 @keyframes drawerUp{
@@ -1165,9 +1177,6 @@ a:visited{
 }
 
 
-
-
-
 @media screen and (max-width: 1023px) and (orientation:landscape){
     .date{
         font-size: 18px;
@@ -1191,7 +1200,8 @@ a:visited{
     }
 
     .weatherAPP{
-        margin:0;
+        margin:2rem 0 0 0;
+        
     }
     .container2 label{
         margin: 2rem 0;
@@ -1206,9 +1216,7 @@ a:visited{
         padding: 5px;
         margin: 0.2rem;
     }
-    .drawer--box{
-        
-    }
+   
     .drawer--box .btn--drawer{
         padding: 3px;
         font-size: 13px;
@@ -1219,23 +1227,6 @@ a:visited{
 };
     
 
-
-
-
-
-
-@keyframes slideRight{
-    from{}
-    to{transform: translateX(300px); opacity: 0;}
-}
-@keyframes slideLeft{
-    from{}
-    to{ transform: translateX(-300px); opacity: 0;}
-}
-@keyframes slideBack{
-    from{}
-    to{left:0;}
-}
 
 
 
