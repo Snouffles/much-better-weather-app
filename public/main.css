@@ -939,6 +939,71 @@ a:visited{
     box-shadow: inset 0px 3px 5px rgba(255,255,255,1), 0px 0px 10px rgba(0,0,0,0.25);
 }
 
+.indexHeader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  
+}
+.indexHeader div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.indexHeader h1{
+    color: red;
+    width: 100%;
+    text-align: center;
+}
+
+
+.indexHeader p{
+    color: #fff;
+    text-align: center;
+}
+.indexHeader #signed{
+    
+    text-align: end;
+    width: 180px;
+    font-family: 'Clicker Script', cursive;
+    font-size: 1.3rem;
+    margin: 20px 0;
+}
+
+.indexHeader a{
+    color: white;
+    text-decoration: none;
+ 
+    
+}
+.indexHeader a:link{
+    color:white;
+}
+.indexHeader a:active{
+    color: rgb(255, 0, 0);
+}
+
+.indexHeader a:visited{
+   color:rgba(139, 139, 139, 0.829)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 @keyframes slideRight{
     from{}
     to{ transform: translateX(300px); opacity: 0;}
@@ -1224,79 +1289,18 @@ a:visited{
      .drawer--box .btn--weather{
         width: 20%;
     }
+   
+    .indexHeader div{
+      margin:auto;
+      aspect-ratio: 1/1;
+    }
+    .indexHeader a{
+        margin: 5% 0 0 0;
+        
+        
+    }
 };
     
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-header{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-  
-}
-header div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-}
-header h1{
-    color: red;
-    width: 100%;
-    text-align: center;
-}
-
-
-header p{
-    color: #fff;
-    text-align: center;
-}
-header #signed{
-    
-    text-align: end;
-    width: 180px;
-    font-family: 'Clicker Script', cursive;
-    font-size: 1.3rem;
-    margin: 20px 0;
-}
-
-header a{
-    color: white;
-    text-decoration: none;
- 
-    
-}
-header a:link{
-    color:white;
-}
-header a:active{
-    color: rgb(255, 0, 0);
-}
-
-header a:visited{
-   color:rgba(139, 139, 139, 0.829)
-}
 
